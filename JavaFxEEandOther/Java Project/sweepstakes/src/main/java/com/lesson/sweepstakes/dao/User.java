@@ -1,7 +1,6 @@
-package com.lesson.sweepstakes.accessingdatamysql;
+/*package com.lesson.sweepstakes.dao;
 
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "users")
@@ -53,4 +52,4 @@ public class User {
         this.email = email;
     }
 
-}
+}*/

@@ -1,9 +1,5 @@
-package com.lesson.sweepstakes.HorseParam;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+/*
+package com.lesson.sweepstakes.service;
 
 public class Horse {
 
@@ -25,5 +21,6 @@ public class Horse {
     }
 
 }
+*/
 
 
