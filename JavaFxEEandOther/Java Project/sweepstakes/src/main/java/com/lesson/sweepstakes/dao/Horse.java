@@ -1,29 +1,17 @@
-
 package com.lesson.sweepstakes.dao;
 
+import lombok.Data;
 
-import com.lesson.sweepstakes.service.HorseRandomGenerator;
-import com.lesson.sweepstakes.service.HorseResult;
+import java.util.UUID;
 
+@Data
+public class Horse {
 
-public class Horse extends HorseResult {
+    private UUID id = UUID.randomUUID();
 
-    private final int modelSpeed;
-    private final String id;
-
+    private int modelSpeed;
 
     public Horse(int speed) {
         this.modelSpeed = speed;
-        this.id = HorseRandomGenerator.randomUuid();
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public int getModelSpeed() {
-        return modelSpeed;
-    }
-
-
 }

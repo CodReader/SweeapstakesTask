@@ -1,26 +1,18 @@
 package com.lesson.sweepstakes.service;
 
-
 import com.lesson.sweepstakes.dao.Horse;
+import com.lesson.sweepstakes.util.constant.RaceConstant;
 
 public class RaceRunGenerator {
-    Horse horse = new Horse(HorseRandomGenerator.randomSpeed());
-    private final int randomSpeed = horse.getModelSpeed();
-    private final String horseRandomId = horse.getId();
-
-    public int raceRun() {
-
+    public static int raceRun() {
         int raceTime;
-        if (Constant.raceLength != 0) {
-            raceTime = Constant.raceLength / randomSpeed * Constant.weather;
+        if (RaceConstant.RACE_LENGTH != 0) {
+            raceTime = RaceConstant.RACE_LENGTH / Horse.getModelSpeed() * RaceConstant.WEATHER;
         } else {
             System.out.println("Error");
         }
         return raceTime;
     }
 
-    public String getId() {
-        return horseRandomId;
-    }
 }
 
