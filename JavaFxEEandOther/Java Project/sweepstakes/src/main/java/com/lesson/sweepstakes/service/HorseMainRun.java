@@ -23,19 +23,25 @@ public class HorseMainRun {
 
         try {
             List<Future<RaceResult>> results = executorService.invokeAll(races);
-            executorService.shutdown();
-            for (int i = 0; i < HorseConstant.HORS_SIZE; i++) {
-                Future<RaceResult> future = results.get(i);
-                try {
-                    RaceResult result = future.get();
-                    logger.log(Level.INFO, "End run with result: {0}", result);
-                } catch (InterruptedException | ExecutionException e) {
-                    logger.log(Level.WARNING, "Interrupted | Execution", e);
-                    Thread.currentThread().interrupt();
-                }
-            }
+            printResults(results);
         } catch (InterruptedException e) {
-            logger.log(Level.WARNING, "Interrupted!", e);
+            logger.log(Level.WARNING, "No horse on start line wtf..", e);
+        } finally {
+            executorService.shutdown();
         }
+    }
+
+    private static List<Future<RaceResult>> printResults(List<Future<RaceResult>> results)  {
+        for (int i = 0; i < HorseConstant.HORS_SIZE; i++) {
+            Future<RaceResult> future = results.get(i);
+            try {
+                RaceResult result = future.get();
+                logger.log(Level.INFO, "Horse end run with result: {0}", result);
+            } catch (InterruptedException | ExecutionException e) {
+                logger.log(Level.WARNING, "Horse cant end run because GOD stop racing", e);
+                Thread.currentThread().interrupt();
+            }
+        }
+        return results;
     }
 }

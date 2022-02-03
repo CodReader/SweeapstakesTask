@@ -10,7 +10,6 @@ public class RaceResult {
     private Horse horse;
 
     public RaceResult(Horse horse, int raceTime) {
-        super();
         this.raceTime = raceTime;
         this.horse = horse;
     }

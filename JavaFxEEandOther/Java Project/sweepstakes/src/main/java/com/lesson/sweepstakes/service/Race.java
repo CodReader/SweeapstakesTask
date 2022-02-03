@@ -23,12 +23,12 @@ public class Race implements Callable<RaceResult> {
 
     @Override
     public RaceResult call() {
-        logger.log(Level.INFO, "Staring: {0}", this.horse);
+        logger.log(Level.INFO, "Horse start running:{0}", this.horse);
         try {
             long duration = (long) (Math.random() * 10);
             TimeUnit.SECONDS.sleep(duration);
         } catch (Exception e) {
-            logger.log(Level.WARNING, "Exception!", e);
+            logger.log(Level.WARNING, "Horses broke down in race", e);
             Thread.currentThread().interrupt();
         }
         return new RaceResult(horse, calculateRaceTime(horse.getModelSpeed()));
